@@ -1,0 +1,1229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vuyisile Phika | Growth Marketer Portfolio</title>
+    <style>
+      :root {
+        --dark: #111827;
+        --light: #f7f8fc;
+        --blue: #4f7cff;
+        --green: #2fb49f;
+        --violet: #8b7cff;
+        --coral: #ff8a65;
+        --gold: #f2b84b;
+        --text-light: #f8fafc;
+        --text-dark: #273246;
+        --muted-light: #c9d4e5;
+        --muted-dark: #667085;
+        --border: #dfe4ee;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--dark);
+        color: var(--text-light);
+        overflow-x: hidden;
+      }
+
+      .top-nav {
+        position: fixed;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(96%, 1080px);
+        z-index: 40;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(17, 24, 39, 0.68);
+        border-radius: 999px;
+        backdrop-filter: blur(12px);
+      }
+
+      .top-nav .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 14px;
+      }
+
+      .brand-dot {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .brand-dot::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--blue), var(--green));
+        box-shadow: 0 0 0 6px rgba(79, 124, 255, 0.15);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: #d8e3f3;
+        text-decoration: none;
+        font-size: 12px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        transition: 0.22s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(circle at 50% 30%, black 30%, transparent 80%);
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      .bg-orb {
+        position: fixed;
+        border-radius: 999px;
+        filter: blur(48px);
+        opacity: 0.26;
+        pointer-events: none;
+        z-index: -1;
+        transition: transform 0.2s linear;
+      }
+
+      .orb-a {
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.7), transparent 70%);
+        top: -80px;
+        left: -70px;
+      }
+
+      .orb-b {
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle, rgba(139, 124, 255, 0.58), transparent 70%);
+        right: -60px;
+        top: 28%;
+      }
+
+      .orb-c {
+        width: 260px;
+        height: 260px;
+        background: radial-gradient(circle, rgba(255, 138, 101, 0.45), transparent 70%);
+        left: 18%;
+        bottom: -80px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      section {
+        padding: 102px 0;
+        position: relative;
+      }
+
+      section::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: min(96%, 1100px);
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(156, 163, 175, 0.35), transparent);
+      }
+
+      section:last-of-type::after {
+        display: none;
+      }
+
+      .section-dark {
+        background:
+          radial-gradient(1200px 500px at 10% 0%, rgba(79, 124, 255, 0.14), transparent 60%),
+          radial-gradient(900px 460px at 90% 100%, rgba(47, 180, 159, 0.1), transparent 60%),
+          linear-gradient(to bottom, #1a2234, #111827);
+        color: var(--text-light);
+      }
+
+      .section-light {
+        background:
+          radial-gradient(950px 420px at 100% 0%, rgba(79, 124, 255, 0.06), transparent 70%),
+          linear-gradient(to bottom, #f7f8fc, #eef2f7);
+        color: var(--text-dark);
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: var(--blue);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.3rem, 5.3vw, 4.7rem);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+      }
+
+      h2 {
+        font-size: clamp(1.9rem, 3.8vw, 3rem);
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 42px;
+        align-items: center;
+      }
+
+      .hero-copy {
+        position: relative;
+      }
+
+      .hero-copy::before {
+        content: "";
+        position: absolute;
+        top: -26px;
+        left: -22px;
+        width: 160px;
+        height: 160px;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(79, 124, 255, 0.26), transparent 70%);
+        z-index: -1;
+      }
+
+      .lead {
+        margin-top: 22px;
+        color: var(--muted-light);
+        line-height: 1.7;
+        max-width: 720px;
+      }
+
+      .hero-title {
+        margin-top: 14px;
+      }
+
+      .hero-role {
+        margin-top: 14px;
+        color: var(--muted-light);
+        font-size: 1.15rem;
+      }
+
+      .cta {
+        margin-top: 30px;
+        display: inline-block;
+        text-decoration: none;
+        background: var(--blue);
+        color: #fff;
+        border-radius: 12px;
+        padding: 12px 20px;
+        font-weight: 600;
+        transition: 0.25s ease;
+        box-shadow: 0 10px 24px rgba(79, 124, 255, 0.3);
+      }
+
+      .cta:hover {
+        transform: translateY(-2px);
+        background: var(--green);
+      }
+
+      .photo-wrap {
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 12px;
+        transform-style: preserve-3d;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.45);
+        position: relative;
+      }
+
+      .photo-wrap::before {
+        content: "";
+        position: absolute;
+        inset: -16px;
+        border-radius: 32px;
+        background: conic-gradient(from 120deg, rgba(79, 124, 255, 0.22), rgba(47, 180, 159, 0.16), rgba(139, 124, 255, 0.2), rgba(79, 124, 255, 0.22));
+        z-index: -1;
+        filter: blur(10px);
+      }
+
+      .hero-stats {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .mini-stat {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.08);
+        color: #e5edf9;
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-size: 12px;
+      }
+
+      .mini-stat strong {
+        color: #fff;
+      }
+
+      .photo-wrap img {
+        width: 100%;
+        display: block;
+        border-radius: 16px;
+      }
+
+      .section-head {
+        max-width: 780px;
+        margin-bottom: 34px;
+      }
+
+      .section-head p {
+        margin-top: 12px;
+        line-height: 1.7;
+      }
+
+      .section-light .section-head p {
+        color: var(--muted-dark);
+      }
+
+      .section-dark .section-head p {
+        color: var(--muted-light);
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .card {
+        background: #fff;
+        color: var(--text-dark);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 24px;
+        transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+        transform-style: preserve-3d;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .project-card {
+        border-radius: 26px;
+        padding: 34px;
+      }
+
+      .project-card:hover {
+        border-color: rgba(59, 130, 246, 0.45);
+        box-shadow: 0 18px 34px rgba(17, 24, 39, 0.14);
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 18px;
+        bottom: 18px;
+        width: 4px;
+        border-radius: 999px;
+        background: linear-gradient(to bottom, var(--blue), var(--green));
+        opacity: 0.9;
+      }
+
+      #projects .grid .project-card:nth-child(3n + 1)::before {
+        background: linear-gradient(to bottom, var(--blue), var(--violet));
+      }
+
+      #projects .grid .project-card:nth-child(3n + 2)::before {
+        background: linear-gradient(to bottom, var(--green), var(--blue));
+      }
+
+      #projects .grid .project-card:nth-child(3n + 3)::before {
+        background: linear-gradient(to bottom, var(--coral), var(--gold));
+      }
+
+      .skill-card {
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .skill-card:nth-child(1) {
+        background: linear-gradient(180deg, #ffffff, #f1f5ff);
+      }
+
+      .skill-card:nth-child(2) {
+        background: linear-gradient(180deg, #ffffff, #eefcf8);
+      }
+
+      .skill-card:nth-child(3) {
+        background: linear-gradient(180deg, #ffffff, #fff4ef);
+      }
+
+      .skill-card:nth-child(4) {
+        background: linear-gradient(180deg, #ffffff, #f2f1ff);
+      }
+
+      .card > * {
+        transform: translateZ(10px);
+      }
+
+      .project-card::after,
+      .media-tile::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.14));
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+      }
+
+      .project-card:hover::after,
+      .media-tile:hover::after {
+        opacity: 1;
+      }
+
+      .project-desc {
+        margin-top: 14px;
+        color: var(--muted-dark);
+        line-height: 1.7;
+        font-size: 15px;
+      }
+
+      .impact {
+        margin-top: 18px;
+        border-radius: 14px;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        background: linear-gradient(135deg, rgba(79, 124, 255, 0.1), rgba(47, 180, 159, 0.08));
+        padding: 16px;
+      }
+
+      .impact p {
+        margin-top: 8px;
+        line-height: 1.7;
+      }
+
+      .pills {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .pill {
+        text-decoration: none;
+        border: 1px solid var(--border);
+        color: var(--text-dark);
+        border-radius: 999px;
+        padding: 9px 15px;
+        font-size: 12px;
+        font-weight: 600;
+        background: linear-gradient(180deg, #ffffff, #f4f7fd);
+        transition: 0.22s ease;
+      }
+
+      .pill:hover {
+        background: rgba(59, 130, 246, 0.1);
+        border-color: rgba(59, 130, 246, 0.5);
+        color: var(--blue);
+      }
+
+      .media-tile {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .placeholder {
+        margin-top: 12px;
+        border-radius: 10px;
+        border: 1px dashed var(--border);
+        background: #f1f5f9;
+        color: var(--muted-dark);
+        text-align: center;
+        padding: 24px 10px;
+        font-size: 14px;
+      }
+
+      .media-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.72);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: 0.25s ease;
+      }
+
+      .media-overlay span {
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .media-tile:hover .media-overlay {
+        opacity: 1;
+      }
+
+      .slideshow {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #ffffff;
+        box-shadow: 0 26px 50px rgba(17, 24, 39, 0.14);
+      }
+
+      .slides {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        background: #e8edf6;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.55s ease;
+      }
+
+      .slide.active {
+        opacity: 1;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #f2f5fb;
+        display: block;
+      }
+
+      .slide-caption {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        background: rgba(18, 24, 38, 0.66);
+        color: #fff;
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+      }
+
+      .slideshow-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 14px;
+        background: linear-gradient(180deg, #fff, #f8faff);
+      }
+
+      .arrow-btn {
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--text-dark);
+        border-radius: 10px;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .arrow-btn:hover {
+        border-color: rgba(91, 124, 250, 0.45);
+        background: rgba(91, 124, 250, 0.08);
+        color: var(--blue);
+      }
+
+      .dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        border: 0;
+        background: #ccd5e3;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .dot.active {
+        width: 24px;
+        background: var(--blue);
+      }
+
+      .link-group .pills .pill:hover {
+        background: var(--green);
+        border-color: rgba(16, 185, 129, 0.5);
+        color: #fff;
+      }
+
+      .contact-box {
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, #ffffff, #f8fbff);
+        color: var(--text-dark);
+        padding: 36px;
+        box-shadow: 0 18px 36px rgba(17, 24, 39, 0.1);
+      }
+
+      .contact-copy {
+        margin-top: 14px;
+        color: var(--muted-dark);
+        line-height: 1.7;
+      }
+
+      .contact-links {
+        margin-top: 18px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .contact-links a {
+        text-decoration: none;
+        color: var(--text-dark);
+      }
+
+      .contact-links a:hover {
+        color: var(--blue);
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        z-index: 50;
+      }
+
+      .modal.open {
+        display: flex;
+      }
+
+      .modal-card {
+        width: 100%;
+        max-width: 680px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--text-dark);
+        padding: 24px;
+        box-shadow: 0 30px 70px rgba(15, 23, 42, 0.35);
+      }
+
+      .close-btn {
+        margin-top: 16px;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 14px;
+        background: var(--blue);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .close-btn:hover {
+        background: var(--green);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1024px) {
+        .top-nav {
+          width: calc(100% - 20px);
+          top: 10px;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .grid-3 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 700px) {
+        section {
+          padding: 72px 0;
+        }
+        .top-nav .inner {
+          align-items: flex-start;
+          gap: 8px;
+          flex-direction: column;
+        }
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+        .project-card {
+          padding: 22px;
+        }
+        .bg-orb {
+          opacity: 0.15;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="inner">
+        <span class="brand-dot">Vuyisile Phika</span>
+        <div class="nav-links">
+          <a href="#top" class="active">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#media-content">Media</a>
+          <a href="#links">Links</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+    <div class="bg-orb orb-c"></div>
+    <section class="section-dark" id="top">
+      <div class="container reveal">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Portfolio</p>
+            <h1 class="hero-title">Vuyisile Phika</h1>
+            <p class="hero-role">Growth Marketer &amp; Content Lead</p>
+            <p class="lead">
+              I help brands grow through clear messaging, practical strategy, and consistent content
+              execution. My work is focused on real outcomes: stronger positioning, better engagement,
+              and measurable campaign impact.
+            </p>
+            <div class="hero-stats">
+              <span class="mini-stat"><strong>35%</strong> engagement growth</span>
+              <span class="mini-stat"><strong>40%</strong> reach lift</span>
+              <span class="mini-stat"><strong>20%</strong> program interactions</span>
+            </div>
+            <a class="cta" href="#projects">View My Work</a>
+          </div>
+          <div class="photo-wrap" data-tilt>
+            <img src="./public/vuyisile-phika.png" alt="Vuyisile Phika portrait" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light">
+      <div class="container reveal">
+        <div class="section-head">
+          <p class="eyebrow">About</p>
+          <h2>Clear strategy, strong content, and focused growth execution</h2>
+          <p>
+            I work across social media, campaigns, and content systems to help brands communicate
+            better and grow with consistency. My approach combines creative direction with
+            performance tracking.
+          </p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card skill-card">Social media strategy</article>
+          <article class="card skill-card">Content creation</article>
+          <article class="card skill-card">Campaign execution</article>
+          <article class="card skill-card">Analytics and performance tracking</article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="projects">
+      <div class="container reveal">
+        <div class="section-head">
+          <p class="eyebrow">Main Work</p>
+          <h2>Projects</h2>
+          <p>Detailed case studies covering strategy, copy, campaign execution, and measurable impact.</p>
+        </div>
+        <div class="grid">
+          <article class="card project-card" data-tilt>
+            <h3>Lean Scaling Co</h3>
+            <p class="project-desc">
+              At Lean Scaling Co, I support the digital marketing and content efforts that position the
+              company as a thought leader in scalable growth and operational strategy.
+              <br /><br />
+              My work includes writing and developing SEO-driven blog articles that break down key
+              topics such as scalable growth, leadership structure, and operational systems for founders
+              and service-based businesses. I also support the rollout of digital campaigns by managing
+              social media content, preparing posts, and coordinating content schedules.
+              <br /><br />
+              Alongside content creation, I track campaign performance across digital channels. This
+              involves reviewing how content performs, identifying which topics resonate most with the
+              audience, and making adjustments to improve reach and engagement.
+            </p>
+            <div class="impact">
+              <p class="eyebrow">Impact</p>
+              <p>
+                In my role, I have taken ownership of content development and execution across blog and
+                social platforms. Over the past 5 months, this has contributed to a steady 12-15%
+                increase in overall social media engagement, while also improving consistency in posting
+                and clarity in messaging across channels.
+              </p>
+            </div>
+            <div class="pills">
+              <a class="pill" href="https://www.leanscaling.com/lean-scaling-system" target="_blank" rel="noreferrer">Lean Scaling System</a>
+              <a class="pill" href="https://www.instagram.com/leanscalingco" target="_blank" rel="noreferrer">Instagram</a>
+              <a class="pill" href="https://www.strategicopsinstitute.com/blog" target="_blank" rel="noreferrer">Strategic Ops Blog</a>
+            </div>
+          </article>
+
+          <article class="card project-card" data-tilt>
+            <h3>Sukume</h3>
+            <p class="project-desc">
+              For Sukume, I worked on developing the website copy, focusing on clearly communicating
+              the company vision, offering, and positioning. The platform brings together elements of
+              technology, creativity, and culture, and the goal of the copy was to make that clear and
+              easy to understand for a broader audience.
+            </p>
+            <div class="impact">
+              <p class="eyebrow">Impact</p>
+              <p>
+                I led the full website copywriting, helping shape how the business presents itself
+                online. The work made the messaging more clear and aligned across pages, which supported
+                better understanding from both partners and users. I also contributed to broader strategy
+                work across projects in tech, art, and fashion, while maintaining strong working
+                relationships with stakeholders both locally and internationally.
+              </p>
+            </div>
+            <div class="pills">
+              <a class="pill" href="https://sukume.com/" target="_blank" rel="noreferrer">Visit Sukume</a>
+            </div>
+          </article>
+
+          <article class="card project-card" data-tilt>
+            <h3>Botlhale AI (Project Lead at Sukume)</h3>
+            <p class="project-desc">
+              I worked with Botlhale AI on developing their social media strategy, as well as writing
+              the About page for their website. The focus was on positioning the brand clearly within
+              the AI space, while making their offering accessible and relevant to their target audience.
+            </p>
+            <div class="impact">
+              <p class="eyebrow">Impact</p>
+              <p>
+                The work helped strengthen their brand positioning and messaging within the AI space. It
+                also supported visibility through industry workshops and conferences, where the brand was
+                able to connect with relevant partners and stakeholders.
+              </p>
+            </div>
+            <div class="pills">
+              <a class="pill" href="https://docs.google.com/presentation/d/1arJByUkDiRDEJ02OEFSJctPKShR32NoP/edit" target="_blank" rel="noreferrer">Strategy Deck</a>
+              <a class="pill" href="https://botlhale.ai/about-us-multilingual-solutions/" target="_blank" rel="noreferrer">About Page</a>
+            </div>
+          </article>
+
+          <article class="card project-card" data-tilt>
+            <h3>Sobae Frozen (Project Lead at Sukume)</h3>
+            <p class="project-desc">
+              I worked with Sobae Frozen to support their brand positioning and execution across social
+              media platforms. My role focused on aligning their content with their overall business
+              direction, making sure the messaging reflected their product offering and brand identity.
+            </p>
+            <div class="impact">
+              <p class="eyebrow">Impact</p>
+              <p>
+                Through refining their marketing and content approach, the brand was able to present
+                itself more clearly and consistently online. This helped improve how the business
+                communicates its value to its audience.
+              </p>
+            </div>
+            <div class="pills">
+              <a class="pill" href="https://www.instagram.com/sobaefrozen/?hl=en" target="_blank" rel="noreferrer">Instagram</a>
+              <a class="pill" href="https://docs.google.com/presentation/d/1A0nHdS0uIjVgI6z1DBDI_Gd78AW6QehB/edit?usp=drive_link&ouid=118223080494002328923&rtpof=true&sd=true" target="_blank" rel="noreferrer">Strategy Presentation</a>
+            </div>
+          </article>
+
+          <article class="card project-card" data-tilt>
+            <h3>Moja Love</h3>
+            <p class="project-desc">
+              At Moja Love, I was part of the team that led social media strategy and content creation
+              across multiple platforms. I personally developed campaign strategies that amplified
+              audience engagement, improved brand visibility, and positioned the network as a leader
+              in relatable, local entertainment.
+            </p>
+            <div class="impact">
+              <p class="eyebrow">Impact</p>
+              <p>
+                Boosted Instagram and Facebook engagement by 35% in six months.<br />
+                Increased post reach by 40% through data-driven content optimization.<br />
+                Strengthened audience connection with on-air shows, contributing to a 20% increase
+                in program-driven digital interactions.
+              </p>
+            </div>
+            <div class="pills">
+              <a class="pill" href="https://x.com/mojalovetv" target="_blank" rel="noreferrer">X Profile</a>
+              <a class="pill" href="https://www.instagram.com/mojalovetv/" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+          </article>
+
+          <article class="card project-card" data-tilt>
+            <h3>Wakanda Food Accelerator</h3>
+            <p class="project-desc">
+              I developed the corporate identity (CI) guidelines for Wakanda Food Accelerator and led
+              the logo redesign project. While I didn&apos;t design the logo myself, I managed the
+              designer and provided strategic direction to ensure the final design aligned with the
+              client&apos;s vision and brand objectives.
+            </p>
+            <div class="impact">
+              <p class="eyebrow">Impact</p>
+              <p>
+                The new logo and CI revitalized Wakanda&apos;s brand, giving it a modern, elegant, and
+                visually appealing identity that resonated with its audience.<br />
+                Strengthened the brand&apos;s presence across digital platforms, including the website and
+                social media, improving overall digital perception.<br />
+                The CI guidelines clarified the brand&apos;s core principles, ensuring consistent application
+                across physical and digital assets.<br />
+                Designed key brand collateral, including stationery, signage, and uniforms, reinforcing
+                a cohesive and professional brand experience.
+              </p>
+            </div>
+            <div class="pills">
+              <a class="pill" href="https://drive.google.com/file/d/1IsQDkXQjvy4ER0FBWZdv-aAPUslnOKBJ/view?usp=drive_link" target="_blank" rel="noreferrer">Brand Guide PDF</a>
+            </div>
+          </article>
+
+          <article class="card project-card" data-tilt>
+            <h3>Ferdinand Louw Interiors</h3>
+            <p class="project-desc">
+              I developed the social media strategy and managed the Instagram page from 2023 to 2024.
+              The focus was on building a strong and consistent brand presence from the ground up.
+            </p>
+            <div class="impact">
+              <p class="eyebrow">Impact</p>
+              <p>
+                I grew the Instagram page from 0 to over 150 followers within the first 3 months
+                through consistent posting and clear positioning. This laid a solid foundation for the
+                brand online presence.
+              </p>
+            </div>
+            <div class="pills">
+              <a class="pill" href="https://www.instagram.com/ferdilouw_interiors" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="media-content">
+      <div class="container reveal">
+        <div class="section-head">
+          <p class="eyebrow">Media</p>
+          <h2>Media Slideshow</h2>
+          <p>Project visuals presented in a clean slideshow format.</p>
+        </div>
+        <div class="slideshow" data-tilt>
+          <div class="slides" id="slides"></div>
+          <div class="slideshow-controls">
+            <button type="button" class="arrow-btn" id="prevSlide">Previous</button>
+            <div class="dots" id="dots"></div>
+            <button type="button" class="arrow-btn" id="nextSlide">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="links">
+      <div class="container reveal">
+        <div class="section-head">
+          <p class="eyebrow">Access</p>
+          <h2>Project Links</h2>
+          <p>All relevant links grouped by project for quick access.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card link-group" data-tilt>
+            <h4>Lean Scaling Co</h4>
+            <div class="pills">
+              <a class="pill" href="https://www.leanscaling.com/lean-scaling-system" target="_blank" rel="noreferrer">Lean Scaling System</a>
+              <a class="pill" href="https://www.instagram.com/leanscalingco" target="_blank" rel="noreferrer">Instagram</a>
+              <a class="pill" href="https://www.strategicopsinstitute.com/blog" target="_blank" rel="noreferrer">Strategic Ops Blog</a>
+            </div>
+          </article>
+          <article class="card link-group" data-tilt>
+            <h4>Sukume</h4>
+            <div class="pills">
+              <a class="pill" href="https://sukume.com/" target="_blank" rel="noreferrer">Website</a>
+            </div>
+          </article>
+          <article class="card link-group" data-tilt>
+            <h4>Botlhale AI</h4>
+            <div class="pills">
+              <a class="pill" href="https://docs.google.com/presentation/d/1arJByUkDiRDEJ02OEFSJctPKShR32NoP/edit" target="_blank" rel="noreferrer">Strategy Deck</a>
+              <a class="pill" href="https://botlhale.ai/about-us-multilingual-solutions/" target="_blank" rel="noreferrer">About Page</a>
+            </div>
+          </article>
+          <article class="card link-group" data-tilt>
+            <h4>Sobae Frozen</h4>
+            <div class="pills">
+              <a class="pill" href="https://www.instagram.com/sobaefrozen/?hl=en" target="_blank" rel="noreferrer">Instagram</a>
+              <a class="pill" href="https://docs.google.com/presentation/d/1A0nHdS0uIjVgI6z1DBDI_Gd78AW6QehB/edit?usp=drive_link&ouid=118223080494002328923&rtpof=true&sd=true" target="_blank" rel="noreferrer">Presentation</a>
+            </div>
+          </article>
+          <article class="card link-group" data-tilt>
+            <h4>Moja Love</h4>
+            <div class="pills">
+              <a class="pill" href="https://x.com/mojalovetv" target="_blank" rel="noreferrer">X</a>
+              <a class="pill" href="https://www.instagram.com/mojalovetv/" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+          </article>
+          <article class="card link-group" data-tilt>
+            <h4>Wakanda Food Accelerator</h4>
+            <div class="pills">
+              <a class="pill" href="https://drive.google.com/file/d/1IsQDkXQjvy4ER0FBWZdv-aAPUslnOKBJ/view?usp=drive_link" target="_blank" rel="noreferrer">Brand Guide</a>
+            </div>
+          </article>
+          <article class="card link-group" data-tilt>
+            <h4>Ferdinand Louw Interiors</h4>
+            <div class="pills">
+              <a class="pill" href="https://www.instagram.com/ferdilouw_interiors" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="contact">
+      <div class="container reveal">
+        <div class="contact-box" data-tilt>
+          <p class="eyebrow">Contact</p>
+          <h2 style="margin-top: 10px">Let&apos;s work together</h2>
+          <p class="contact-copy">
+            If you are looking for growth-focused content, clear messaging, and practical campaign
+            strategy, I&apos;d love to hear about your goals.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:vuyisile.phika@email.com">vuyisile.phika@email.com</a>
+            <a href="https://www.linkedin.com/in/vuyisilephika" target="_blank" rel="noreferrer">linkedin.com/in/vuyisilephika</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      reveals.forEach((item) => observer.observe(item));
+
+      const slideshowImages = [
+        { src: "./Images/Screenshot 2026-04-08 at 16.24.59.png", label: "Campaign Visual 1" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.25.22.png", label: "Campaign Visual 2" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.25.52.png", label: "Campaign Visual 3" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.27.05.png", label: "Campaign Visual 4" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.38.28.png", label: "Campaign Visual 5" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.42.18.png", label: "Campaign Visual 6" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.42.29.png", label: "Campaign Visual 7" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.43.19.png", label: "Campaign Visual 8" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.44.05.png", label: "Campaign Visual 9" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.44.48.png", label: "Campaign Visual 10" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.45.02.png", label: "Campaign Visual 11" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.46.00.png", label: "Campaign Visual 12" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.46.30.png", label: "Campaign Visual 13" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.47.51.png", label: "Campaign Visual 14" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.48.07.png", label: "Campaign Visual 15" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.49.22.png", label: "Campaign Visual 16" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.57.11.png", label: "Campaign Visual 17" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.58.08.png", label: "Campaign Visual 18" },
+        { src: "./Images/Screenshot 2026-04-08 at 16.58.56.png", label: "Campaign Visual 19" }
+      ];
+
+      const slidesEl = document.getElementById("slides");
+      const dotsEl = document.getElementById("dots");
+      const prevBtn = document.getElementById("prevSlide");
+      const nextBtn = document.getElementById("nextSlide");
+      let currentSlide = 0;
+      let autoPlayTimer;
+
+      function renderSlides() {
+        slidesEl.innerHTML = "";
+        dotsEl.innerHTML = "";
+
+        slideshowImages.forEach((image, index) => {
+          const slide = document.createElement("div");
+          slide.className = `slide ${index === currentSlide ? "active" : ""}`;
+          slide.innerHTML = `<img src="${encodeURI(image.src)}" alt="${image.label}" /><span class="slide-caption">${image.label}</span>`;
+          slidesEl.appendChild(slide);
+
+          const dot = document.createElement("button");
+          dot.className = `dot ${index === currentSlide ? "active" : ""}`;
+          dot.type = "button";
+          dot.addEventListener("click", () => {
+            currentSlide = index;
+            renderSlides();
+            restartAutoPlay();
+          });
+          dotsEl.appendChild(dot);
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideshowImages.length;
+        renderSlides();
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + slideshowImages.length) % slideshowImages.length;
+        renderSlides();
+      }
+
+      function restartAutoPlay() {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = setInterval(nextSlide, 3600);
+      }
+
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        restartAutoPlay();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        restartAutoPlay();
+      });
+
+      renderSlides();
+      restartAutoPlay();
+
+      const tiltTargets = document.querySelectorAll("[data-tilt]");
+      const canTilt = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+      if (canTilt) {
+        tiltTargets.forEach((element) => {
+          element.addEventListener("mousemove", (event) => {
+            const rect = element.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const rotateX = ((y / rect.height) - 0.5) * -8;
+            const rotateY = ((x / rect.width) - 0.5) * 8;
+            element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+          });
+
+          element.addEventListener("mouseleave", () => {
+            element.style.transform = "";
+          });
+        });
+      }
+
+      const navAnchors = document.querySelectorAll(".nav-links a");
+      const trackedSections = Array.from(navAnchors)
+        .map((anchor) => document.querySelector(anchor.getAttribute("href")))
+        .filter(Boolean);
+
+      const navObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navAnchors.forEach((anchor) => {
+                anchor.classList.toggle("active", anchor.getAttribute("href") === `#${entry.target.id}`);
+              });
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+      trackedSections.forEach((section) => navObserver.observe(section));
+
+      const orbs = document.querySelectorAll(".bg-orb");
+      window.addEventListener("scroll", () => {
+        const y = window.scrollY;
+        orbs.forEach((orb, index) => {
+          const speed = (index + 1) * 0.08;
+          orb.style.transform = `translate3d(0, ${y * speed}px, 0)`;
+        });
+      });
+    </script>
+  </body>
+</html>
