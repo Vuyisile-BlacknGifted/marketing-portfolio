@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  @apply bg-bg text-lightText antialiased;
+  scroll-behavior: smooth;
+}
+
+* {
+  @apply border-border;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-6xl px-6 md:px-10;
+}
+
+.section-tint-blue {
+  @apply bg-gradient-to-b from-[#111c34] to-[#0f172a];
+}
+
+.section-tint-green {
+  @apply bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9];
+}
+
+.section-dark {
+  @apply bg-gradient-to-b from-[#111c34] to-[#0f172a] text-lightText;
+}
+
+.section-light {
+  @apply bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9] text-darkText;
+}
